@@ -7,18 +7,22 @@ def nearest_zero(len_array: int, array: list[int]) -> str:
         answer.append(distance)
         if array[i] == 0 and first:
             first = False
-            for x in range(i, -1, -1):
-                answer[x] = i-x
+            for x in range(0, i + 1):
+                answer[x] = i - x
             distance = 0
         elif array[i] == 0:
-            answer[i] = 0
-            for x in range(i, i - int(distance / 2) - 1, -1):
+            for x in range(i - int(distance / 2), i + 1):
                 answer[x] = i - x
             distance = 0
         i += 1
         distance += 1
-    return str(answer)
+    return ' '.join(map(str, answer))
 
 
-arr = list(map(int, input().split()))
-print(nearest_zero(len(arr), arr))
+def main():
+    arr = list(map(int, input().split()))
+    print(nearest_zero(len(arr), arr))
+
+
+if __name__ == '__main__':
+    main()
