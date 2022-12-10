@@ -11,7 +11,7 @@ def nearest_zero(len_array: int, array: list[int]) -> str:
                 answer[x] = i - x
             distance = 0
         elif array[i] == 0:
-            for x in range(i - int(distance / 2), i + 1):
+            for x in range(i - distance // 2, i + 1):
                 answer[x] = i - x
             distance = 0
         i += 1
