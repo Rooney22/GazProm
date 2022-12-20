@@ -1,5 +1,5 @@
 def sleight_of_hand(k: int, array: str) -> int:
-    answer = sum(0 < array.count(str(i)) <= 2 * k for i in range(1, 10))
+    answer = sum(0 < array.count(str(i)) <= 2 * k for i in range(0, 10))
     return answer
 
 
