@@ -1,12 +1,18 @@
-def largest_number(n: int, numbers: str) -> str:
-    numbers = numbers.split()
-    for i in range(n - 1):
-        for j in range(n - i - 1):
-            var1 = numbers[j] + numbers[j+1]
-            var2 = numbers[j+1] + numbers[j]
-            if var2 > var1:
-                numbers[j], numbers[j+1] = numbers[j+1], numbers[j]
+from functools import cmp_to_key
 
+
+def comp(item1, item2):
+    var1 = item1 + item2
+    var2 = item2 + item1
+    if var2 > var1:
+        return 1
+    if var2 < var1:
+        return -1
+    return 0
+
+
+def largest_number(n: int, numbers: str) -> str:
+    numbers = sorted(numbers.split(), key=cmp_to_key(comp))
     return ''.join(i for i in numbers)
 
 
