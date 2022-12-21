@@ -1,6 +1,6 @@
 def psp(n: int, index: int,
         dif_branches: int, answer: list[str]):
-    if dif_branches <= n-index-2:
+    if dif_branches <= n - index - 2:
         answer[index] = '('
         psp(n, index + 1, dif_branches + 1, answer)
     if dif_branches > 0:
